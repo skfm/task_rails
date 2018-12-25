@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Twclones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @twclones.each do |twclone| %>
+      <tr>
+        <td><%= twclone.content %></td>
+        <td><%= link_to 'Show', twclone %></td>
+        <td><%= link_to 'Edit', edit_twclone_path(twclone) %></td>
+        <td><%= link_to 'Destroy', twclone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Twclone', new_twclone_path %>

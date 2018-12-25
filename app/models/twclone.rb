@@ -1,0 +1,2 @@
+class Twclone < ApplicationRecord
+end
