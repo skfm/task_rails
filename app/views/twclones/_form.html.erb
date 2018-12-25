@@ -1,4 +1,4 @@
-<%= form_with(model: twclone, local: true) do |form| %>
+<%= form_with(model: @twclone, local: true, url: choose_new_or_edit) do |form| %>
   <% if twclone.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(twclone.errors.count, "error") %> prohibited this twclone from being saved:</h2>

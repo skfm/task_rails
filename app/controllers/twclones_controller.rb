@@ -1,28 +1,24 @@
 class TwclonesController < ApplicationController
   before_action :set_twclone, only: [:show, :edit, :update, :destroy]
 
-  # GET /twclones
-  # GET /twclones.json
   def index
     @twclones = Twclone.all
   end
-
-  # GET /twclones/1
-  # GET /twclones/1.json
+  
   def show
   end
 
-  # GET /twclones/new
   def new
-    @twclone = Twclone.new
+    if params[:back]
+      @twclone = Twclone.new(twclone_params)
+    else
+      @twclone = Twclone.new
+    end
   end
 
-  # GET /twclones/1/edit
   def edit
   end
 
-  # POST /twclones
-  # POST /twclones.json
   def create
     @twclone = Twclone.new(twclone_params)
 
@@ -37,8 +33,6 @@ class TwclonesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /twclones/1
-  # PATCH/PUT /twclones/1.json
   def update
     respond_to do |format|
       if @twclone.update(twclone_params)
@@ -51,8 +45,6 @@ class TwclonesController < ApplicationController
     end
   end
 
-  # DELETE /twclones/1
-  # DELETE /twclones/1.json
   def destroy
     @twclone.destroy
     respond_to do |format|
@@ -60,14 +52,18 @@ class TwclonesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def confirm
+    @twclone = Twclone.new(twclone_params)
+    render :new if @twclone.invalid?
+  end
+  
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_twclone
       @twclone = Twclone.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def twclone_params
       params.require(:twclone).permit(:content)
     end

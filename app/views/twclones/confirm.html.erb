@@ -1,0 +1,14 @@
+<p>以下の内容で、ツイートする？</p>
+
+<%= form_with(model: @twclone, url: twclones_path, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+<br>
+  <p>本文:<%= @twclone.content %></p>
+<br>  
+  <%= form.submit  "ツイートする" %>
+<% end %>
+<br>
+<%= form_with(model: @twclone, url: new_twclone_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.submit "もどる", name: 'back' %>
+<% end %>
