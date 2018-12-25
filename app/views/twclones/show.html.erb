@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @twclone.content %>
-</p>
-
-<%= link_to 'Edit', edit_twclone_path(@twclone) %> |
-<%= link_to 'Back', twclones_path %>
+<strong>ツイッター内容</strong>
+<br>
+<br>
+<p id="content"><%= @twclone.content %></p>
+<br>
+<%= link_to 'ツイートを編集する', edit_twclone_path(@twclone) %> |
+<%= link_to '戻る', twclones_path %>

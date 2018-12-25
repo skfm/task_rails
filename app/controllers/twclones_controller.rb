@@ -24,7 +24,7 @@ class TwclonesController < ApplicationController
 
     respond_to do |format|
       if @twclone.save
-        format.html { redirect_to @twclone, notice: 'Twclone was successfully created.' }
+        format.html { redirect_to @twclone, notice: 'ツイートが完了しました。' }
         format.json { render :show, status: :created, location: @twclone }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ class TwclonesController < ApplicationController
   def update
     respond_to do |format|
       if @twclone.update(twclone_params)
-        format.html { redirect_to @twclone, notice: 'Twclone was successfully updated.' }
+        format.html { redirect_to @twclone, notice: 'ツイート内容が更新されました。' }
         format.json { render :show, status: :ok, location: @twclone }
       else
         format.html { render :edit }
@@ -48,7 +48,7 @@ class TwclonesController < ApplicationController
   def destroy
     @twclone.destroy
     respond_to do |format|
-      format.html { redirect_to twclones_url, notice: 'Twclone was successfully destroyed.' }
+      format.html { redirect_to twclones_url, notice: 'ツイートが削除されました。' }
       format.json { head :no_content }
     end
   end
